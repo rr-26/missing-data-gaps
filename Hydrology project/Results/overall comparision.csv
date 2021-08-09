@@ -1,0 +1,7 @@
+,,,,,,
+,RMSE,,R2 Score,,Kling-Gupta efficiency,
+Model,Test data,MD,Test data,MD,Test data,MD
+LSTM,0.086,0.094,0.825,0.908,0.83,0.935
+ARIMA,0.157,0.151,0.749,0.871,0.807,0.905
+EOF,,,,,,
+KNN,0.012,0.01,0.99,0.99,0.98,0.98

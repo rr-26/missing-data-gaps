@@ -24,7 +24,12 @@ numpy.random.seed(7)
 dataframe = read_csv('Data set/using data/monthly_data.csv', engine='python')
 dataset = dataframe.values
 dataset = dataset.astype('float32')
-#plt.plot(dataset[1:,1], label = 'Rainfall')
+plt.plot(dataset[1:,1], label = 'Rainfall')
+plt.title("Monthly Dataset 1990-2020")
+plt.xlabel('1990-2020 time series')  
+plt.ylabel('precipitation(kg/m2)')
+plt.legend(["Precipitaion Data"], loc = "upper right")
+
 #plt.plot(dataset[:,2],label = 'Snowfall')
 
 dataset = dataset[:,1]
@@ -62,6 +67,8 @@ print('Train Score: %.2f RMSE' % (trainScore))
 testScore = math.sqrt(mean_squared_error(testY, testPredict[:,0]))
 print('Test Score: %.2f RMSE' % (testScore))
 
+math.sqrt(mean_squared_error(testY, testPredict))
+
 trainPredict = scaler.inverse_transform(trainPredict)
 trainY = scaler.inverse_transform([trainY])
 testPredict = scaler.inverse_transform(testPredict)
@@ -98,6 +105,11 @@ for i in range(indices_size):
     
 plt.plot(original_data_in_gap)
 plt.plot(predicted_data_in_gap)
+plt.title("Data for Missing positions")
+plt.xlabel('missing point indices in dataset')  
+plt.ylabel('precipitation')
+plt.legend(["Original","Predicted"], loc = "upper right")
+
 metrics.r2_score(original_data_in_gap, predicted_data_in_gap)
 
 Final_score_without_normalisation = math.sqrt(mean_squared_error(original_data_in_gap, predicted_data_in_gap))
@@ -108,4 +120,9 @@ original_data_in_gap_scaled = scaler.fit_transform (original_data_in_gap)
 predicted_data_in_gap_scaled = scaler.fit_transform (predicted_data_in_gap)
 Final_score_with_normalisation = math.sqrt(mean_squared_error(original_data_in_gap_scaled, predicted_data_in_gap_scaled))
 print(Final_score_with_normalisation)
+
+
+
+
+
 
